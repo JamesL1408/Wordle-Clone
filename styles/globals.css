@@ -4,13 +4,101 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  display: flex ;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid gray;
+  
+}
+.title{
+  width: 100%;
+  text-align: center;
+  font-size: 34px;
+  font-weight: 800;
+  font-family: 'Alegreya', serif;
+}
+.board{
+  display: flex;
+  gap:5px;
+  flex-direction: column;
+}
+.tile{
+  border: 1px black solid;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.line{
+  display: flex;
+  gap: 5px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.correct{
+  background-color: #6aaa64;
+}
+.close{
+  background-color: #c9b458;
+}
+.incorrect{
+  background-color: #939598;
 }
 
-* {
-  box-sizing: border-box;
+.refresh{
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  transform: translateX(-50%);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
 }
+.footer{
+  height: 60px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  background-color: #6aaa64;
+  gap: 25px;
+}
+.icon{
+  height: 30px;
+  width: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.iconpdf{
+  height: 27px;
+  width: 27px;
+  cursor: pointer;
+  color: white;
+}
+
+.icon:hover{
+  transform: translateY(-2px);
+  ;
+}
+.iconpdf:hover{
+  transform: translateY(-2px);
+  ;
+}
+
