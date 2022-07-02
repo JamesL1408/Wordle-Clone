@@ -94,12 +94,7 @@ export default function Home() {
 
       <h2 className='refresh'>Refresh for new game.</h2>
 
-      <div className='footer'>
-        <a target='_blank' href="https://www.linkedin.com/in/james-llewellyn-5b0229241/"><FontAwesomeIcon className='icon' icon={faLinkedin}/></a>
-        <a target='_blank' href="https://github.com/JamesL1408/"><FontAwesomeIcon className='icon' icon={faGithubSquare}/></a>
-        <a target='_blank' href="https://www.facebook.com/james.llewellyn.14"><FontAwesomeIcon className='icon' icon={faFacebookSquare}/></a>
-        <a  target='_blank' download href="/CVJames.pdf"><FontAwesomeIcon className='iconpdf' icon={faFileLines}/></a>
-      </div>
+      
       
     </div>
   )
