@@ -37,6 +37,7 @@ export default function Home() {
         const isCorrect = solution === currentGuess;
         if(isCorrect) {
           setIsGameOver(true);
+          setTimeout(() => { alert('Well Done! You guessed correctly!') }, 1000);
         }
       }
 
@@ -67,6 +68,10 @@ export default function Home() {
   fetchWord();
   },[]);
 
+  function refreshPage (){
+    window.location.reload();
+  }
+
 
   return (
     <div className={styles.container}>
@@ -92,7 +97,7 @@ export default function Home() {
         })}
       </div>
 
-      <h2 className='refresh'>Refresh for new game.</h2>
+      <button onClick={refreshPage} className='refresh'>New Game</button>
 
       <div className='footer'>
         <a target='_blank' href="https://www.linkedin.com/in/james-llewellyn-5b0229241/"><FontAwesomeIcon className='icon' icon={faLinkedin}/></a>
