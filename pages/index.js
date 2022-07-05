@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faFacebookSquare, faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faInstagramSquare, faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -99,12 +99,12 @@ export default function Home() {
 
       <button onClick={refreshPage} className='refresh'>New Game</button>
 
-      <div className='footer'>
+      <footer className='footer'>
         <a target='_blank' href="https://www.linkedin.com/in/james-llewellyn-5b0229241/"><FontAwesomeIcon className='icon' icon={faLinkedin}/></a>
         <a target='_blank' href="https://github.com/JamesL1408/"><FontAwesomeIcon className='icon' icon={faGithubSquare}/></a>
-        <a target='_blank' href="https://www.facebook.com/james.llewellyn.14"><FontAwesomeIcon className='icon' icon={faFacebookSquare}/></a>
+        <a target='_blank' href="https://www.facebook.com/james.llewellyn.14"><FontAwesomeIcon className='icon' icon={faInstagramSquare}/></a>
         <a  target='_blank' download href="/CVJames.pdf"><FontAwesomeIcon className='iconpdf' icon={faFileLines}/></a>
-      </div>
+      </footer>
       
     </div>
   )
