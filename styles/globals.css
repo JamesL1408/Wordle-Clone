@@ -17,7 +17,10 @@ body {
   height: 50px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   border-bottom: 1px solid gray;
+  background: white;
   
 }
 .title{
@@ -31,6 +34,9 @@ body {
   display: flex;
   gap:5px;
   flex-direction: column;
+  margin-top: 70px;
+  align-items: center;
+  justify-content: center;
 }
 .tile{
   border: 1px black solid;
@@ -119,3 +125,27 @@ body {
   ;
 }
 
+.keypad{
+  min-width: 380px;
+  max-width: 480px;
+  margin: 20px auto;
+}
+
+
+.keypad > div{
+  margin: 5px;
+  width: 35px;
+  height: 42px;
+  background: lightgray;
+  border-radius: 6px;
+  line-height: 50px;
+  display: inline-block;
+}
+
+.keypad-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

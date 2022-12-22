@@ -2,11 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faInstagramSquare, faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faFileLines } from '@fortawesome/free-solid-svg-icons';
+import KeyPad from '../Components/KeyPad';
 
 
 const WORD_LENGTH = 5;
@@ -17,6 +19,10 @@ export default function Home() {
   const [guesses,setGuesses] = useState(Array(6).fill(null));
   const [currentGuess,setCurrentGuess] = useState('');
   const [isGameOver,setIsGameOver] = useState(false);
+  const [totalGuesses,setTotalGuesses] = useState(0);
+
+  const notifyLoss = () => toast.error('Unlucky, the correct word was: '+ solution);
+  const notifyWin = () => toast.success('Well done, you guessed correctly');
 
   useEffect(() => {
     const handleType = (event) =>{
@@ -37,9 +43,11 @@ export default function Home() {
         const isCorrect = solution === currentGuess;
         if(isCorrect) {
           setIsGameOver(true);
-          setTimeout(() => { alert('Well Done! You guessed correctly!') }, 1000);
+          setTimeout(() => { notifyWin() }, 1000);
         }
       }
+
+      
 
       if(event.key === 'Backspace') {
         setCurrentGuess(currentGuess.slice(0,-1));
@@ -51,8 +59,17 @@ export default function Home() {
       }
 
       const isLetter = event.key.match(/^[a-z]{1}$/) != null;
-      if(isLetter){setCurrentGuess(currentGuess + event.key);}
+      if(isLetter){
+        setCurrentGuess(currentGuess + event.key);
+        setTotalGuesses(totalGuesses+1);
+        console.log(totalGuesses)
+      }
+
     };
+
+    if(totalGuesses===30 & isGameOver==false){
+        notifyLoss()
+      }
 
     window.addEventListener('keydown',handleType);
 
@@ -83,6 +100,7 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
         <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"></link>
       </Head>
+      <Toaster/>
 
       <header className='header' >
         <div className='title'>Wordle</div>
@@ -92,19 +110,26 @@ export default function Home() {
         {guesses.map((guess,i) =>{
           const isCurrentGuess = i === guesses.findIndex(val=>val==null);
           return(
-            <Line  guess={isCurrentGuess ? currentGuess : guess ?? ""} isFinal={!isCurrentGuess && guess!=null} solution={solution}/>
+            <Line key={i}  guess={isCurrentGuess ? currentGuess : guess ?? ""} isFinal={!isCurrentGuess && guess!=null} solution={solution}/>
           )
         })}
       </div>
+      <div className='keypad-container'>
+        <KeyPad/>
+      </div>
 
       <button onClick={refreshPage} className='refresh'>New Game</button>
-
-      <footer className='footer'>
-        <a target='_blank' href="https://www.linkedin.com/in/james-llewellyn-5b0229241/"><FontAwesomeIcon className='icon' icon={faLinkedin}/></a>
-        <a target='_blank' href="https://github.com/JamesL1408/"><FontAwesomeIcon className='icon' icon={faGithubSquare}/></a>
-        <a target='_blank' href="https://www.facebook.com/james.llewellyn.14"><FontAwesomeIcon className='icon' icon={faInstagramSquare}/></a>
-        <a  target='_blank' download href="/CVJames.pdf"><FontAwesomeIcon className='iconpdf' icon={faFileLines}/></a>
-      </footer>
+        {/**
+         <footer className='footer'>
+           <a target='_blank' href="https://www.linkedin.com/in/james-llewellyn-5b0229241/"><FontAwesomeIcon className='icon' icon={faLinkedin}/></a>
+           <a target='_blank' href="https://github.com/JamesL1408/"><FontAwesomeIcon className='icon' icon={faGithubSquare}/></a>
+           <a target='_blank' href="https://www.facebook.com/james.llewellyn.14"><FontAwesomeIcon className='icon' icon={faInstagramSquare}/></a>
+           <a  target='_blank' download href="/CVJames.pdf"><FontAwesomeIcon className='iconpdf' icon={faFileLines}/></a>
+         </footer>
+         * 
+         * 
+         * 
+         */}
       
     </div>
   )
