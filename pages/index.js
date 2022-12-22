@@ -35,6 +35,9 @@ export default function Home() {
         if(currentGuess.length !==5 ){
           return;
         }
+        if(totalGuesses===30){
+
+        }
         const newGuesses = [...guesses];
         newGuesses[guesses.findIndex(val=>val==null)] = currentGuess;
         setGuesses(newGuesses);
@@ -67,7 +70,7 @@ export default function Home() {
 
     };
 
-    if(totalGuesses===31 && isGameOver==false){
+    if(totalGuesses==30 && isGameOver==true){
         notifyLoss()
       }
 
