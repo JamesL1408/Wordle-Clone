@@ -67,7 +67,7 @@ export default function Home() {
 
     };
 
-    if(totalGuesses===30 & isGameOver==false){
+    if(totalGuesses===30 && isGameOver==false){
         notifyLoss()
       }
 
@@ -114,22 +114,20 @@ export default function Home() {
           )
         })}
       </div>
-      <div className='keypad-container'>
-        <KeyPad/>
-      </div>
+      {/*
+        <div className='keypad-container'>
+          <KeyPad/>
+        </div>      
+      */}
 
       <button onClick={refreshPage} className='refresh'>New Game</button>
-        {/**
-         <footer className='footer'>
-           <a target='_blank' href="https://www.linkedin.com/in/james-llewellyn-5b0229241/"><FontAwesomeIcon className='icon' icon={faLinkedin}/></a>
-           <a target='_blank' href="https://github.com/JamesL1408/"><FontAwesomeIcon className='icon' icon={faGithubSquare}/></a>
-           <a target='_blank' href="https://www.facebook.com/james.llewellyn.14"><FontAwesomeIcon className='icon' icon={faInstagramSquare}/></a>
-           <a  target='_blank' download href="/CVJames.pdf"><FontAwesomeIcon className='iconpdf' icon={faFileLines}/></a>
-         </footer>
-         * 
-         * 
-         * 
-         */}
+      
+      <footer className='footer'>
+        <a target='_blank' href="https://www.linkedin.com/in/james-llewellyn-5b0229241/"><FontAwesomeIcon className='icon' icon={faLinkedin}/></a>
+        <a target='_blank' href="https://github.com/JamesL1408/"><FontAwesomeIcon className='icon' icon={faGithubSquare}/></a>
+        <a target='_blank' href="https://www.facebook.com/james.llewellyn.14"><FontAwesomeIcon className='icon' icon={faInstagramSquare}/></a>
+        <a  target='_blank' download href="/CVJames.pdf"><FontAwesomeIcon className='iconpdf' icon={faFileLines}/></a>
+      </footer>
       
     </div>
   )
