@@ -67,7 +67,7 @@ export default function Home() {
 
     };
 
-    if(totalGuesses===30 && isGameOver==false){
+    if(totalGuesses===31 && isGameOver==false){
         notifyLoss()
       }
 
