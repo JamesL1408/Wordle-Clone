@@ -22,7 +22,7 @@ export default function Home() {
   const [totalGuesses,setTotalGuesses] = useState(0);
 
   const notifyLoss = () => toast.error('Unlucky, the correct word was: '+ solution);
-  const notifyWin = () => toast.success('Well done, you guessed correctly');
+  const notifyWin = () => toast.success('Well done, you guessed correctly',{duration:4000});
 
   useEffect(() => {
     const handleType = (event) =>{
@@ -46,9 +46,9 @@ export default function Home() {
         const isCorrect = solution === currentGuess;
         if(isCorrect) {
           setIsGameOver(true);
-          setTimeout(() => { notifyWin() }, 1000);
+          notifyWin();
         }
-        if(totalGuesses==30 && isGameOver==true){
+        if(totalGuesses==30 && isGameOver==false){
         notifyLoss()
       }
       }
