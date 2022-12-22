@@ -48,6 +48,9 @@ export default function Home() {
           setIsGameOver(true);
           setTimeout(() => { notifyWin() }, 1000);
         }
+        if(totalGuesses==30 && isGameOver==true){
+        notifyLoss()
+      }
       }
 
       
@@ -70,9 +73,7 @@ export default function Home() {
 
     };
 
-    if(totalGuesses==30 && isGameOver==true){
-        notifyLoss()
-      }
+    
 
     window.addEventListener('keydown',handleType);
 
